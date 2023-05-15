@@ -1,2 +1,6 @@
 <!DOCTYPE html>
-  <app-nova-transferencia (aotransferir)="transferir($event)"></app-nova-transferencia>
+<app-nova-transferencia
+  (aotransferir)="transferir($event)"
+></app-nova-transferencia>
+<p>Valor: {{ transferencia?.valor }}</p>
+<p>Destino: {{ transferencia?.destino }}</p>
