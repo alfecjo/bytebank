@@ -1,8 +1,8 @@
 .formulario {
-  background-color: white;
+  background-color: rgb(160, 161, 193);
   padding: 16px;
   border-radius: 4px;
-  box-shadow: 0 0 18px rgba(8, 181, 25, 0.1);
+  box-shadow: 0 0 18px rgba(8, 20, 181, 0.1);
   &__titulo {
     text-transform: capitalize;
     color: var(--primary);

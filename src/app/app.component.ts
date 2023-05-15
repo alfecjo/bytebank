@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NovaTransferenciaComponent } from './nova-transferencia/nova-transferencia.component';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +8,11 @@ import { NovaTransferenciaComponent } from './nova-transferencia/nova-transferen
 export class AppComponent {
   title = 'bytebank';
 
-  transferencia!: any;
+  transferencias: any[] = [];
 
   transferir($event: any) {
     console.log($event);
-    this.transferencia = $event;
+    const transferencia = { ...$event, data: new Date() };
+    this.transferencias.push(transferencia);
   }
 }
