@@ -7,6 +7,10 @@
     <th class="tabela__cabecalho__conteudo">Destino</th>
   </thead>
   <tbody>
+
+    <!-- *ngFor... e uma diretiva estrutural que permite criar repeticoes dinamica
+    de elementos HTML, com base nos itens de uma lista.
+  neste caso, *ngFor, itera sobre o array 'transferencias'. -->
     <tr class="tabela__linha" *ngFor="let transferencia of transferencias">
       <td class="tabela__conteudo">{{ transferencia?.data | date : "short" }}</td>
       <td class="tabela__conteudo">{{ transferencia?.valor | currency }}</td>

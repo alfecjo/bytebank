@@ -8,6 +8,9 @@ import { ExtratoComponent } from './extrato/extrato.component';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 
+// metodo para instruir nacionalizacao 'pt' Portugues.
+// mais abaixo, foram incluidos os providers necessarios para
+// complementar a acao, bem como, emprego do formato de moeda nacional.
 registerLocaleData(localePt, 'pt');
 @NgModule({
   declarations: [AppComponent, NovaTransferenciaComponent, ExtratoComponent],

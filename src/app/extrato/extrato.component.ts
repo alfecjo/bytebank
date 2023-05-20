@@ -6,7 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./extrato.component.scss']
 })
 export class ExtratoComponent {
-  @Input() transferencias: any[] = [];
 
+  //'@input()' indica que o componente pode receber dados do componente pai
+  //'transferencias[]', e' um array, o qual, pode conter qualquer tipo de dado
+  @Input() transferencias: any[] = [];
 
 }
