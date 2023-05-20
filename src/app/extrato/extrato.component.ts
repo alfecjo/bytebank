@@ -11,4 +11,5 @@ export class ExtratoComponent {
   //'transferencias[]', e' um array, o qual, pode conter qualquer tipo de dado
   @Input() transferencias: any[] = [];
 
+
 }
