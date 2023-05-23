@@ -1,20 +1,29 @@
 <!DOCTYPE html>
 <table class="tabela">
-  <caption class="titulo">Transferências</caption>
+  <caption class="titulo">
+    Transferências
+  </caption>
   <thead class="tabela__cabecalho">
     <th class="tabela__cabecalho__conteudo">Data</th>
     <th class="tabela__cabecalho__conteudo">Valor</th>
     <th class="tabela__cabecalho__conteudo">Destino</th>
   </thead>
-  <tbody>
 
+  <!-- verifica a existencia de elementos no array e so apresenta,
+  caso for diferente "!=" de zero -->
+  <tbody *ngIf="transferencias?.length != 0; else listaVazia">
     <!-- *ngFor... e uma diretiva estrutural que permite criar repeticoes dinamica
     de elementos HTML, com base nos itens de uma lista.
   neste caso, *ngFor, itera sobre o array 'transferencias'. -->
     <tr class="tabela__linha" *ngFor="let transferencia of transferencias">
-      <td class="tabela__conteudo">{{ transferencia?.data | date : "short" }}</td>
+      <td class="tabela__conteudo">
+        {{ transferencia?.data | date: 'short' }}
+      </td>
       <td class="tabela__conteudo">{{ transferencia?.valor | currency }}</td>
       <td class="tabela__conteudo">{{ transferencia?.destino }}</td>
     </tr>
   </tbody>
 </table>
+<ng-template #listaVazia>
+  <p>Nenhum registro!</p>
+</ng-template>

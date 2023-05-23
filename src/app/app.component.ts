@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TransferenciaService } from './service/transferencia.service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'bytebank';
 
-// a propriedade 'transferencias' esta visivel ao componente filho 'app-extrato',
-// atraves da declaracao em '<app-extrato [transferencias]="transferencias"></app-extrato>'.
-  transferencias: any[] = [];
+  // a propriedade 'transferencias' esta visivel ao componente filho 'app-extrato',
+  // atraves da declaracao em '<app-extrato [transferencias]="transferencias"></app-extrato>'.
+  // transferencias: any[] = [];
 
-// aqui esta a chamada realizada em 'app.component.html'. Dessa forma, os valores sairam la de
-// 'nova-transferencia.components.ts', foram escutados em 'app.component.html', o qual, chama o
-// metodo 'transferir($event:any)', onde "$event", representam os valores.
+  constructor(private service: TransferenciaService) {}
+
+  // aqui esta a chamada realizada em 'app.component.html'. Dessa forma, os valores sairam la de
+  // 'nova-transferencia.components.ts', foram escutados em 'app.component.html', o qual, chama o
+  // metodo 'transferir($event:any)', onde "$event", representam os valores.
   transferir($event: any) {
-    console.log($event);
-    const transferencia = { ...$event, data: new Date() };
-    this.transferencias.push(transferencia);
+    this.service.adicionar($event)
   }
 }
