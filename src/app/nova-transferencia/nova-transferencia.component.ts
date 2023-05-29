@@ -1,9 +1,12 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Transferencia } from 'models/transferencia.model';
+import { TransferenciaService } from '../service/transferencia.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nova-transferencia',
   templateUrl: './nova-transferencia.component.html',
-  styleUrls: ['./nova-transferencia.component.scss']
+  styleUrls: ['./nova-transferencia.component.scss'],
 })
 export class NovaTransferenciaComponent {
   //aqui, estamos lidando com um evento que pode ser emitido a a partir do componente filho,
@@ -19,12 +22,22 @@ export class NovaTransferenciaComponent {
   valor!: number;
   destino!: number;
 
+  constructor(private service: TransferenciaService, private router: Router) {}
+
   transferir() {
     console.log('Solicitada transferência');
-    const valorEmitir = { valor: this.valor, destino: this.destino };
-    this.aotransferir.emit(valorEmitir);
+    const valorEmitir: Transferencia = {
+      valor: this.valor,
+      destino: this.destino,
+    };
 
-    this.limparCampos();
+    // RxJS - Subscribe arguments
+    this.service.adicionar(valorEmitir).subscribe({
+      next: (resultado) => console.log(resultado),
+      error: (e) => console.error(e),
+      complete: () => console.info(),
+    });
+    this.router.navigateByUrl('extrato');
   }
 
   limparCampos() {

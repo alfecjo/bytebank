@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 
-<!-- o componente pai esta ouvindo o evento '(aotransferir)' e chamando a  funcao
-'transferir($vent)' e '$event' representa o valor emitido pelo evento, associado ao filho. -->
-<app-nova-transferencia
-  (aotransferir)="transferir($event)"
-></app-nova-transferencia>
-
-<!-- aqui esta havendo a criacao do vinculo entre o componente pai e filho,
-sendo '[transferencias]' do filho, vinculado a '"transferencias"', do pai.
-'"transferencias"', pai, esta sendo passada para o componente filho, 'app-extrato'.
-Essa vinculacao permite que o componente filho: 'app-extrato' acesse e utilize a
-o valor da propriedade 'transferencias' do componente pai, seja para exibir alguma
-informacao ou executar alguma logica.-->
-<app-extrato></app-extrato>
-
-
+<header>
+  <a routerLink="extrato">ByteBank</a>
+  <a routerLink="nova-transferencia" routerLinkActive="ativo"
+    >Nova Transferência</a
+  >
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
