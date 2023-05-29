@@ -4,7 +4,9 @@ Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Execute -> abra um terminal: cd dados <ENTER>, execute o servidor fake: 'json-server --watch db.json'.
+abra outro terminal: execute o servidor da aplicação: `ng serve` no diretório raiz do projeto. Navegue para `http://localhost:4200`. 
+  A aplicação será automaticamente carregada.
 
 ## Code scaffolding
 
